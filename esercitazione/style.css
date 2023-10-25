@@ -1,0 +1,39 @@
+
+*{ /*questo segno * si usa per tutto il sito che creo, in generale */
+}
+
+#main-container {
+background-color: rgb(224, 183, 131);
+}
+
+/* Le classi si identificano sempre con . e lo stesso nome puo essere applicato a piu elementi.
+Id si identificano sempre con # e si usa un nome solo per una cosa .*/
+
+
+.nav-left, .nav-right {  /* cosi ho unito entrambi i nav e messi su una linea usando display inline */
+    display: inline;
+}
+
+.products-card{
+    background-color: beige;
+    width: 150px;
+    display: inline-block;
+}
+
+.products-card img{
+    width: 100%;
+}
+
+.reviews{
+    background-color: darkgoldenrod;
+    padding: 15px;
+}
+
+.location{
+    padding: 15px;
+}
+
+.footer-list{
+    display: inline-block; /*metto tutto sulla stessa linea */
+    list-style: none; /* dato che è una lista, tolgo i puntini caratteristici della lista con questo comando*/
+}
