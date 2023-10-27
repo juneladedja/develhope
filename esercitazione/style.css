@@ -1,5 +1,6 @@
 
 *{ /*questo segno * si usa per tutto il sito che creo, in generale */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #main-container {
@@ -7,7 +8,7 @@ background-color: rgb(224, 183, 131);
 }
 
 /* Le classi si identificano sempre con . e lo stesso nome puo essere applicato a piu elementi.
-Id si identificano sempre con # e si usa un nome solo per una cosa .*/
+Id si identificano sempre con # e si usa un nome solo per una cosa . */
 
 
 .nav-left, .nav-right {  /* cosi ho unito entrambi i nav e messi su una linea usando display inline */
@@ -26,7 +27,7 @@ Id si identificano sempre con # e si usa un nome solo per una cosa .*/
 
 .reviews{
     background-color: darkgoldenrod;
-    padding: 15px;
+    padding: 15px; /* questo serve a inserire spazio dentro il contenitore in cui lo inserisco */
 }
 
 .location{
@@ -34,6 +35,11 @@ Id si identificano sempre con # e si usa un nome solo per una cosa .*/
 }
 
 .footer-list{
-    display: inline-block; /*metto tutto sulla stessa linea */
-    list-style: none; /* dato che è una lista, tolgo i puntini caratteristici della lista con questo comando*/
+    display: inline-block; /* metto tutto sulla stessa linea */
+    list-style: none; /* dato che è una lista, tolgo i puntini caratteristici della lista con questo comando */
+}
+
+footer{
+    padding: 20px; /* quando scrivo css devo sempre mettere ; altrimenti css non funziona */
+    height: 300px;
 }
