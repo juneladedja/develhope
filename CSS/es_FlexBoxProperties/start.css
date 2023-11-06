@@ -1,0 +1,35 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: space-between;
+}
+
+section{
+    height: 100vh; 
+    align-items: center;
+}
+
+#red{
+    width: 15%;
+}
+
+#yellow{
+    width: 15%;
+}
+
+#green{
+    width: 12%;
+} 
+
+#orange{
+    width: 30%;
+}
+
+#blue{
+    width: 12%;
+}
