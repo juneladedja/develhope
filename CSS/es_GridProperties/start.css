@@ -1,0 +1,71 @@
+*{
+    padding: o;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "A_green A_green A_green A_green A_green A_green"
+        "A_yellow A_yellow A_red A_red A_blue A_blue"
+        "A_yellow A_yellow A_red A_red A_blue A_blue"
+        "A_orange A_orange A_orange A_orange A_blue A_blue";
+    gap: 10px;
+    height: 100vh;
+}
+
+#green{
+    grid-area: A_green; 
+    background-color: #a7da82; 
+    display: flex;
+    align-items: center;
+    padding: 2%;
+ }
+
+#yellow{
+    grid-area: A_yellow;
+    background-color: rgba(246, 246, 136, 0.932); 
+    padding-top: 15%;
+ }
+
+ #yellow p, #red p, #blue p{
+    padding-left: 5%;
+ }
+
+ #yellow p, #red p{
+    padding-bottom: 5%;
+ }
+
+#red{
+    grid-area: A_red;
+    padding-top: 15%;
+    background-color: rgba(245, 77, 77, 0.798); 
+ }
+
+#blue{
+    padding-top: 15%;
+    grid-area: A_blue;
+    background-color: rgb(83, 187, 248);
+ }
+
+#orange{
+    grid-area: A_orange;
+    background-color: rgba(247, 194, 96, 0.82); 
+    display: flex;
+    align-items: center;
+    padding: 2%;
+ }
+
+ #inner_grid{
+    display: grid;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-areas: 
+        ". first second ."
+        ". third fourth .";
+    gap: 20px;
+   height: 50%;
+ }
