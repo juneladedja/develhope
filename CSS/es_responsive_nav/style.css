@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none; 
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav a{
+    color: white;
+}
+
+nav{
+    background-color: #1d1d1f;
+    color: white;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    height: 64px;
+    font-size: 24px;
+}
+
+.link{
+    display: flex;
+    gap: 16px;
+}
+
+.links a{
+    color: rgb(195, 195, 195);
+}
+
+.disabled a{      
+    color: rgb(63, 63, 63);
+    opacity: 0.8;
+}
+
+.input input{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.input button{
+    padding: 10px;
+    border: 1px solid green;
+    border-radius: 6px;
+    font-size: 20px;
+    color: green;
+    background-color: transparent;
+}
+
+.hmb-container{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger{
+    width: 35px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    border-radius: 5px;
+}
+
+.hamburger::after, .hamburger::before{
+    width: 35px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    border-radius: 5px;
+}
+
+.hamburger::after{
+    content: "";
+    top: -10px;
+}
+
+.hamburger::before{
+    content: "";
+    top: 10px;
+}
