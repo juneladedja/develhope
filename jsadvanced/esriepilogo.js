@@ -37,3 +37,4 @@ console.log(mapStudents);
 
 let bravoStud = studenti.filter(student => student.voto > 85)
 console.log(bravoStud);
+
