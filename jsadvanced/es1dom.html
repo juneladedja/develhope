@@ -1,0 +1,49 @@
+// Stampa in ordine in console:
+
+// l'elemento padre di ul.
+// il secondo elemento figlio di ul.
+// l'elemento fratello successivo del secondo li.
+// l'elemento fratello precedente del secondo li.
+// Il tutto utilizzando tutte e 4 le proprietà viste nel video.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        const ul = document.querySelector ("ul")  
+        // querySelector si usa per cercare un elemento e si usa in document, 
+        // per questo si scrive document.queryselector
+        // querySelector è generale 
+
+        // l'elemento padre di ul.
+        const parent = ul.parentElement
+        console.log(parent);
+
+        // il secondo elemento figlio di ul.
+        const son = ul.children[1]
+        console.log(son);
+
+        // l'elemento fratello successivo del secondo li.
+        const next = son.nextElementSibling.innerText // innerText si mette per vedere contenuto
+        console.log(next);
+
+        // l'elemento fratello precedente del secondo li.
+        const previous = son.previousElementSibling.innerText 
+        console.log(previous);
+    </script>
+</body>
+
+</html>
+
