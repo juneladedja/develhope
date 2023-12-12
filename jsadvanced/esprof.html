@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <label for="input-todo">Add a new to do</label>
+    <input type="text" id="todoInput">
+    <button id="bottone">Add To Do</button>
+    <button id="reset_btn">Reset List</button>
+
+    <ul class="list"></ul>
+
+    <script>
+        const input = document.querySelector ("#todoInput") // seleziono input
+        const btn = document.querySelector ("#bottone") // seleziono bottone
+        // # si mette perche è ID e non class (.)
+        const ul = document.querySelector(".list") // seleziono lista 
+        const bottone = document.querySelector('#reset_btn')
+
+        // fare in modo che bottone che faccia azione 
+        btn.addEventListener('click', () => {  // addEventListener si usa per far fare azione 
+            // due par di cui il primo è azione e secondo funzione che fa fare la cosa
+            const li = document.createElement ('li') // creo un li
+            li.textContent = input.value // li deve avere come contenuto il valore che do a input, quindi qualsiasi cosa ci sia scritta
+            ul.appendChild(li) // serve per rendere li figlio di ul dentro html, e si scrive contenitore.appendChild(figlio)
+            
+            //ora pulisco input dopo che clicco bottone
+            input.value = "" //metto stringa vuota, vuol dire che dopo che scrivo e clicco bottone, esce stringa vuota
+
+            bottone.addEventListener('click', () => {  // addEventListener si usa sempre con bottoni perche è un evento
+            ul.remove(li) //seleziono il genitore a cui elimino il figlio 
+            })
+
+            //aggiungo checkbox FUORI dall'EventListener del bottone reset ma dentro EventListener del bottone che aggiunge ToDo 
+            const check = document.createElement('input')
+            check.type = 'checkbox' // type serve per dire che tipo di input è, in questo caso checkbox
+            li.appendChild(check) // attacco a li la checkbox
+
+        })
+    </script>
+</body>
+</html>
