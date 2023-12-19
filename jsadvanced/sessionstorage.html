@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            gap: 16px;
+            margin-bottom: 16px
+        };
+    </style>
+</head>
+<body>
+    <h1>Il form di <span class="title-name"></span></h1>
+    <div class="form">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email" placeholder="email">
+        <label for="firstname">Name</label>
+        <input type="text" name="firstname" class="firstname" placeholder="firstname">
+        <label for="lastname">Surname</label>
+        <input type="text" name="lastname" class="lastname" placeholder="lastname">
+    </div>
+    <button class="btn">Salva</button>
+    <p class="printedform"></p>
+
+
+    <script>
+        const btn = document.querySelector('.btn')
+        const name = document.querySelector('.firstname')
+        const email = document.querySelector ('.email')
+        const lastname = document.querySelector ('.lastname')
+        const span = document.querySelector('.title-name')
+        const p = document.querySelector ('.printedform')
+
+        btn.addEventListener('click', () => {
+            // salvo tutto nel local storage
+            localStorage.setItem ('name', name.value), // metto value perche questo è quello che mi serve, il valore
+            localStorage.setItem ('email', email.value),
+            localStorage.setItem ('lastname', lastname.value),
+
+            // dentro a span metto il valore che viene messo a name
+            span.innerText = name.value
+
+            p.innerText = `Email: ${email.value}, Name: ${name.value}, Surname: ${lastname.value}`
+        })
+
+        // questo serve per riprendere elemento che abbiamo salvato
+        const utente = localStorage.getItem ('name')
+
+        // questo serve a fare in modo che quando si refresha, il nome rimane scritto 
+        // se non c'e nome, esce alert
+        if (utente){
+            span.innerText = utente
+        } else {
+            alert ('inserisci dati')
+        }
+
+    </script>
+</body>
+
+</html>

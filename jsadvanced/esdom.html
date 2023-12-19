@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="name">What's your name ?</label>
+    <input type="text" id="name">
+    <button class="btn">Click here</button>
+
+<script>
+
+    const btn = document.querySelector('.btn') // seleziono bottone
+    const body = document.querySelector('body')
+    const input = document.querySelector('input')
+    const p = document.createElement('p') // creo p a cui associo textContent
+
+    btn.addEventListener('click', () =>{
+
+        if (input.value.length > 3){ // se la LUNGHEZZA del nome é >3, quindi si mette length perche sono parole
+            p.textContent = `Welcome ${input.value}` // inserisco testo da metterci dentro + il valore che do io all'input
+            body.appendChild(p) // con appendChild, dentro () non si scrive stringa !!!
+        } else {
+          alert ('inserisci nome piu lungo') // messaggio di avviso nel caso il nome fosse < 3
+         }
+
+    })
+
+</script>
+
+</body>
+</html>
