@@ -22,34 +22,37 @@
 
     <div class="container"></div>
 
-    <script>  // lo so che dentro lo script ci va il link del file js a parte
+    <script> 
 
-      const container = document.querySelector(".container")
-      const btn = document.querySelector("button")
-      const name = document.createElement("h2");
-      const img = document.createElement("img");
+      const container = document.querySelector(".container") // punto container
+      const btn = document.querySelector("button") // punto bottone
+      const name = document.createElement("h2"); // punto nome (che mi serve)
+      const img = document.createElement("img"); // punto immagine (che mi serve)
 
 
 
-const getData = async ()=>{
+ async function getData () {
+  try { // gestisco errore, con async await si mette sempre try catch
+    const input = document.querySelector("input").value // punto al valore dell'input che è quello che mi serve
+    let res = await fetch(`https://ringsdb.com/api/public/card/${inputValue}.json?_format=json`) 
+    // dentro al link del fetch metto il valore input che è quello della carta che mi servirá
+    let data = await res.json(); // converto in json
+    console.log(data); // stampo
+    name.textContent = data.name // al nome metto come testo il nome del dato, quindi data.name (= a input.value)
+    img.setAttribute("src", `https://ringsdb.com/${data.imagesrc}`) 
+    // nell'immagine cambio la fonte src che è un attributo di img quindi uso metodo
+    // setAttribute che serve nelle immagini per cambiare il suo url
 
-  try {
-    const inputValue = document.querySelector("input").value
-    let res = await fetch(`https://ringsdb.com/api/public/card/${inputValue}.json?_format=json`);
-    let data = await res.json();
-    console.log(data);
-    name.textContent = data.name
-    img.setAttribute("src", `https://ringsdb.com/${data.imagesrc}`);
+    container.append(name, img); 
 
-    container.append(name, img);
-
-  } catch (error) {
+  } catch (error) { // gestisco errore
     console.error(error);
-  }
+ }
 
 }
 
-btn.addEventListener("click", getData)
+btn.addEventListener("click", getData) 
+// all'event listener associo la funzione sopra
 
     </script>
 </body>

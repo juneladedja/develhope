@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" class="input" />
+    <button>Cliccami</button>
+    <div class="result"> </div>
+
+    <script>
+
+        const input = document.querySelector ('.input') // punto input
+        const button = document.querySelector ('button') // punto bottone
+        const div = document.querySelector ('.result') // punto div
+
+        async function fetchData (){ // creo funzione asicrona per fetch
+            try { // gestisco errori
+                // faccio fetch mettendo come valore nell'url l'input value
+                const res = await fetch (`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`) 
+                const data = await res.json () // converto in json
+
+                // dato che ricavo un array (se faccio clg(data), ricavo solo il primo elemento dell'array, che metto dentro a cost word
+                const word = data[0] 
+
+                // creo dei p al cui interno metto quello che chiede consegna, puntando quello che mi serve
+                div.innerHTML = `<p> Word: ${word.word} </p>
+                <p> Definition: ${word.meanings[0].definitions[0].definition} </p>
+                <p> Phonetic: ${word.phonetic} </p>
+                <p> Example: ${word.meanings[0].definitions[0].example} </p>`
+
+            } catch (error) { // gestisco errore
+                alert ("parola non trovata")
+            }
+        }
+
+        // evento che ad ogni click mi escono i p che ho creato con quello che mi serve
+        button.addEventListener ('click', fetchData)
+
+    </script>
+
+</body>
+</html>

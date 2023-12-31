@@ -1,0 +1,74 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .card {
+        width: 200px;
+        padding: 15px;
+        background-color: brown;
+        margin: 10px;
+      }
+
+      .card.selected{
+      background-color: cornflowerblue;
+      color: white;
+      }
+
+    </style>
+    <title>Post Cards</title>
+  </head>
+
+  <body>
+
+    <script>
+       
+        async function fetchData (){ // creo funzione asincrona per fetch
+            try { // try catch per errori ecc
+                const response = await fetch (' https://jsonplaceholder.typicode.com/posts') // faccio fetch
+                const data = await response.json() // converto in json
+
+                for (let i = 0; i < 11; i++) { // faccio ciclo for per ricavare i primi 10 post
+                   const post = data[i]; // mettiamo quello che otteniamo da for dentro una costante post
+
+                   // const post mi serve perche poi devo ricavargli titolo e body per le card
+                   // infatti const post contiene ogni dato finche il ciclo non finisce
+
+                const card = document.createElement('div'); // creo un div (per le card)
+                card.classList.add('card'); // aggiungo classe card al div
+
+                // creo dinamicamente un h2 e un p che fanno parte della card (infatti card.innerHTML)
+                // quando creo piu di un elemento, o metto la virgola o vado a capo
+                // nell'h2 ci va il titolo di post, nel p ci va il body di post
+                card.innerHTML = `<h2> ${post.title} </h2> 
+                                  <p> ${post.body} </p>`; 
+                // metto `` e  dentro i tag con template strings con che ci dovrebbe andare dentro(title e body
+
+                // creo eventListener per card, perche ogni volta che clicco la card, cambia colore
+                // per far cambiare colore, ho creato una classe selected nel css
+                // e questa classe ad ogni click deve mettersi e togliersi, quindi uso toggle
+                card.addEventListener('click', function () {
+                    card.classList.toggle('selected');
+                });
+
+                let body = document.querySelector('body') // punto al body dell'html
+                body.appendChild(card); // appendo al body le card
+            } 
+            } catch (error) { // gestisco errore
+                console.error('errore downloading');
+            }
+        }
+
+        // al posto di fare event listener con bottone, lo facciamo con Document perche 
+        // la consegna dice che bisogna effettuare la cosa al CARICAMENTO della pagina
+        // e non al click di un bottone
+        // caricamento del documento si scrive DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', fetchData); 
+        // dentro metto ()=> quando c'e solo una cosa da fare
+
+    </script>
+  </body>
+</html>
