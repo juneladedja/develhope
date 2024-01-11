@@ -31,13 +31,17 @@
                 <p> Definition: ${word.meanings[0].definitions[0].definition} </p>
                 <p> Phonetic: ${word.phonetic} </p>
                 <p> Example: ${word.meanings[0].definitions[0].example} </p>`
+                // quando creo dinamicamente qualcosa, non devo appenderlo da nessuna parte perche si appende
+                // da solo nel momento in cui faccio ineerHTML
+                // appendo solo quando uso createElement
 
             } catch (error) { // gestisco errore
                 alert ("parola non trovata")
             }
         }
 
-        // evento che ad ogni click mi escono i p che ho creato con quello che mi serve
+        // evento che ad ogni click mi escono i p che ho creato
+        // richiamo la funzione che ho creato
         button.addEventListener ('click', fetchData)
 
     </script>
