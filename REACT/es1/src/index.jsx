@@ -1,4 +1,4 @@
-import { HelloWorld } from "./hello";
+import { Day, HelloWorld } from "./hello";
 import { createRoot } from "react-dom/client"
 
 const HelloWorldElement = <HelloWorld /> 
