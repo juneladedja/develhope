@@ -24,8 +24,11 @@ export function Login(){
   }
  
   function handleLoginButton(){
-    setData (" ")
+    onLogin(data) // scrivo questo perche es vuole che passo un onLogin al click del bottone
+    // par è lo state
   }
+
+  const disabled = username === '' || password === ''
 
   return ( // quello che deve tornarmi la funzione Login
     <div>
@@ -33,7 +36,7 @@ export function Login(){
       <input type = "text" name="userName" value={data.userName} onChange={handleData} placeholder="username" />
       <input type="password" name="password" value={data.password} onChange={handleData} placeholder="password" />
       <input type="checkbox" name="rememberMe" value={data.checkBox} onChange={handleData} />
-      <button onClick = {handleLoginButton}> Login </button>
+      <button onClick = {handleLoginButton} disabled = {disabled}> Login </button>
     </div>
   );
 }
