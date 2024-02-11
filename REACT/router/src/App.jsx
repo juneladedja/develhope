@@ -13,6 +13,7 @@ function App() {
         <Route path='/contatore' element={<Counter />} />
         <Route path='/utenti/:username' element={<ShowGitHubUser />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/userlist' element={<GitHubUserList/>}/>
       </Routes>
       
       <Link to={"/contatore"}> Counter </Link>
