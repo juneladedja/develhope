@@ -9,12 +9,10 @@ export function FetchPost(){
     async function dataFetch(){
         try {
             const res = await fetch ('https://jsonplaceholder.typicode.com/posts')
-            if(res.ok){
-                const data = await res.json()
-                console.log(data);
-                setPosts(data)
-            }
-        } catch (error) {
+            const data = await res.json()
+            console.log(data);
+            setPosts(data)
+            } catch (error) {
             console.log(error);
         } finally {
             setLoading(false)

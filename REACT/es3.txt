@@ -1,0 +1,12 @@
+È possibile utilizzare il Hellocomponente più di una volta nel App componente?
+Si, i componenti sono elementi riutilizzabili, quindi posso riutilizzare Hello all'interno dell'App componente.
+
+Cosa succede se lo fai?
+Verranno create più "versioni" del componente Hello. 
+Ogni versione avrà le sue proprietà.
+
+Puoi eseguire il rendering del Message componente direttamente all'interno del App componente?
+Sì, è possibile. 
+
+Cosa succede se lo fai?
+

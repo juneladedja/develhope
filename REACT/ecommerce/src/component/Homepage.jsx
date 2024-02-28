@@ -1,62 +1,50 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { Card } from "./Card";
-import "./Homepage.css";
-export function Homepage() {
-  const [productArr, setProductArr] = useState([]);
-  const [chart, setchart] = useState([]);
+import { useContext, useEffect, useState } from "react"
+import { Card } from "./Card"
+import { CartContext } from "../Context/CartContext"
 
-  async function fetchProduct() {
-    const res = await fetch(`https://fakestoreapi.com/products`);
-    const products = await res.json();
-    setProductArr(products);
-  }
-  useEffect(() => {
-    fetchProduct();
-  }, []);
-  function handleChart(product) {
-    const isContained = chart.find((item) => item.id == product.id);
-    if (isContained) {
-      setchart(
-        chart.map((item) => {
-          return item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 } : item;
-        })
-      );
-    } else {
-      setchart([...chart, { ...product, quantity: 1 }])
+export function Homepage(){
+
+    const [products , setProducts] = useState([])
+    const {handleBtn,handleDecrement,handleReset,handleShowTotal,cart,total,handleIncrement}= useContext(CartContext)
+
+
+    async function getData(){
+        try {
+            const res = await fetch('https://fakestoreapi.com/products')
+            const data = await res.json()
+            setProducts(data)
+
+        } catch (error) {
+            console.error(error)
+        }
     }
-  }
-  useEffect(() => {
-    console.log(chart);
-  }, [chart]);
-  productArr.length > 0 && console.log(productArr);
-  return (
-    <>
-      <h1>Ecommerce</h1>
-      <div className="card-container">
-        {productArr.map((product) => {
-          return (
-            <Card
-              key={product.id}
-              product={product}
-              event={() => {
-                handleChart(product);
-              }}
-            />
-          );
-        })}
 
-        {chart.map((chart) => {
-          return (
-            <>
-            <p>{chart.title} </p>
-          <p>{chart.quantity}</p>
-            </>
-          
-          )
-        })}
-      </div>
-    </>
-  );
+    useEffect(()=>{
+        getData()
+    },[])
+    useEffect(()=>{
+        handleShowTotal()
+    },[cart])
+
+
+
+    return (
+        <>
+            <h1>E-Commerce</h1>
+            <div className="container">
+                {products.map((item) => (
+                <Card key={item.id} item={item} event={handleBtn}/>
+                ))}
+            </div>
+            <div className="chart-container">
+                {cart.map((item)=>(
+                    <p key={item.id}>{item.title} x {item.quantity}<button onClick={() => handleDecrement(item)}> - </button> <button onClick={()=>handleIncrement(item)}>+</button></p>
+
+                ))}
+                {cart.length > 0 ? <p>Total: €{total}</p> : <p>Selezionare un prodotto</p>}
+                <button onClick={handleReset}>Reset</button>
+
+            </div>
+        </>
+    )
 }

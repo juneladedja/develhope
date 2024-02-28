@@ -11,7 +11,8 @@ export function Container ({title, children}){
     return(
         <div className="app">
             <div className="app-title"> {title} <button onClick={ handleToggleCollapse}>Toggle</button> </div>
-            {collapsed && <div className="app-content"> {children} </div>}
+            {collapsed && <div className="app-content"> {children} </div>} 
         </div>
     )
 }
+// faccio conditional rendering

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { UseCustom } from "./UseCustom"
 
 export function CustomCounter(){
