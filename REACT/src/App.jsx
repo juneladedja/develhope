@@ -1,15 +1,15 @@
-
-import './App.css'
-import { MouseClick } from './MouseClick'
-
-function App() {
+import { StrictMode } from "react";
+import { Message } from "./Message";
 
 
-  return (
-    <>
-     <MouseClick/>
-    </>
-  )
+export function App(){
+    
+    return (
+        <>
+            <StrictMode>
+                <Message/>
+            </StrictMode>
+        </>
+        
+    )
 }
-
-export default App
