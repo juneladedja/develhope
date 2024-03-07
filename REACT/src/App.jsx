@@ -1,12 +1,13 @@
-import { Location } from './Location'
+
 import './App.css'
+import { MouseClick } from './MouseClick'
 
 function App() {
 
 
   return (
     <>
-      <Location/>
+     <MouseClick/>
     </>
   )
 }
